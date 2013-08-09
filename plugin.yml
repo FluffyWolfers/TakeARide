@@ -6,3 +6,5 @@ permissions:
     default: true
   takearide.control:
     default: true
+  takearide.follow:
+    default: true

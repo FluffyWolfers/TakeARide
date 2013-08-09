@@ -34,6 +34,14 @@ public class TaRListener implements Listener{
 				
 			}
 			
+		}else if(p.getItemInHand().getType().equals(Material.STICK)){
+			
+			if(p.hasPermission("takearide.follow")){
+				
+				
+				
+			}
+			
 		}
 			
 	}
@@ -67,7 +75,7 @@ public class TaRListener implements Listener{
 			}
 				
 		}
-			
+		
 	}
 	
 }
