@@ -7,9 +7,16 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.craftbukkit.v1_6_R2.entity.CraftCreature;
+import org.bukkit.entity.Creeper;
+import org.bukkit.entity.Enderman;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Monster;
+import org.bukkit.entity.PigZombie;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Skeleton;
+import org.bukkit.entity.Spider;
+import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -38,7 +45,52 @@ public class TaRListener implements Listener{
 			
 			if(p.hasPermission("takearide.follow")){
 				
-				
+				if(en instanceof Monster){
+					
+					if(((Monster)en).getTarget() == null){
+						
+						boolean flag = false;
+						
+						if(en instanceof Zombie){
+							((Zombie) l).setTarget(p);
+							flag = true;
+						}
+						if(en instanceof Creeper){
+							((Creeper) l).setTarget(p);
+							flag = true;
+						}
+						if(en instanceof Spider){
+							((Spider) l).setTarget(p);
+							flag = true;
+						}
+						if(en instanceof Skeleton){
+							((Skeleton) l).setTarget(p);
+							flag = true;
+						}
+						if(en instanceof Enderman){
+							((Enderman) l).setTarget(p);
+							flag = true;
+						}
+						if(en instanceof PigZombie){
+							((PigZombie) l).setTarget(p);
+							flag = true;
+						}
+						
+						if(flag){
+							p.sendMessage(en.getType().getName().substring(0, 1).toUpperCase() + en.getType().getName().substring(1).toLowerCase() + " is now following you");
+						}
+						
+						flag = false;
+						
+					}else{
+						
+						p.sendMessage(en.getType().getName().substring(0, 1).toUpperCase() + en.getType().getName().substring(1).toLowerCase() + " is no longer following you");
+						
+						((Monster)en).setTarget(null);
+						
+					}
+					
+				}
 				
 			}
 			
