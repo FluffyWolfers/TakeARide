@@ -4,3 +4,5 @@ version: 1.0
 permissions:
   takearide.ride:
     default: true
+  takearide.control:
+    default: true
